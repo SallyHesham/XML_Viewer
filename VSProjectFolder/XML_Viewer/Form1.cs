@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace XML_Viewer
 {
@@ -17,12 +18,23 @@ namespace XML_Viewer
             InitializeComponent();
         }
 
+        // Open button event implementation
         private void openButton_Click(object sender, EventArgs e)
         {
+            // Opens a folder browser window
             OpenFileDialog fileBrowser = new OpenFileDialog();
             fileBrowser.Title = "Select XML file";
             fileBrowser.Filter = "XML files (*.xml)|*.xml";
-            fileBrowser.ShowDialog();
+            
+            if (fileBrowser.ShowDialog() == DialogResult.OK)
+            {
+                // fileName is the full path of the file selected by the user
+                string fileName = fileBrowser.FileName;
+                // I currently display the file as is
+                // this will change later
+                this.mainTextDisplay.Text = File.ReadAllText(fileName);
+            }
+            
         }
     }
 }
