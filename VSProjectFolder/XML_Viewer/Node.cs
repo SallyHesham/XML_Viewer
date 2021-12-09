@@ -12,17 +12,15 @@ namespace XML_Viewer
         private string data;
         private List<Node> children = new List<Node>();
 
-        Node(string t, string d)
+        public Node(string t, string d)
         {
             tag = t;
             data = d;
         }
 
-        public void addChild(string t, string d)
+        public void addChild(Node n)
         {
-            Node child = new Node(t, d);
-            children.Add(child);
-            return;
+            children.Add(n);
         }
 
         public string getTag()
