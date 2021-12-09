@@ -1,0 +1,10 @@
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\XML_Viewer.exe.config
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\XML_Viewer.exe
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\XML_Viewer.pdb
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.csproj.AssemblyReference.cache
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.Properties.Resources.resources
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.csproj.GenerateResource.cache
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.csproj.CoreCompileInputs.cache
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.exe
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.pdb
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.mainWindow.resources

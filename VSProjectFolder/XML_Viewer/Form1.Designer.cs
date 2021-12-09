@@ -1,7 +1,7 @@
 ﻿
 namespace XML_Viewer
 {
-    partial class Form1
+    partial class mainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,142 @@ namespace XML_Viewer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.openButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctErrorsButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressionMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.decompressButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainTextDisplay = new System.Windows.Forms.TextBox();
+            this.mainMenuStrip.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // mainMenuStrip
+            // 
+            this.mainMenuStrip.BackColor = System.Drawing.Color.Black;
+            this.mainMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openButton,
+            this.saveButton,
+            this.correctErrorsButton,
+            this.convertButton,
+            this.compressionMenuButton});
+            this.mainMenuStrip.Location = new System.Drawing.Point(9, 8);
+            this.mainMenuStrip.Name = "mainMenuStrip";
+            this.mainMenuStrip.Size = new System.Drawing.Size(505, 24);
+            this.mainMenuStrip.TabIndex = 0;
+            this.mainMenuStrip.Text = "menuStrip1";
+            // 
+            // openButton
+            // 
+            this.openButton.BackColor = System.Drawing.Color.Transparent;
+            this.openButton.ForeColor = System.Drawing.Color.White;
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(48, 20);
+            this.openButton.Text = "Open";
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
+            // 
+            // convertButton
+            // 
+            this.convertButton.ForeColor = System.Drawing.Color.White;
+            this.convertButton.Name = "convertButton";
+            this.convertButton.Size = new System.Drawing.Size(106, 20);
+            this.convertButton.Text = "Convert to JSON";
+            // 
+            // correctErrorsButton
+            // 
+            this.correctErrorsButton.ForeColor = System.Drawing.Color.White;
+            this.correctErrorsButton.Name = "correctErrorsButton";
+            this.correctErrorsButton.Size = new System.Drawing.Size(91, 20);
+            this.correctErrorsButton.Text = "Correct Errors";
+            // 
+            // compressionMenuButton
+            // 
+            this.compressionMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.compressButton,
+            this.decompressButton});
+            this.compressionMenuButton.ForeColor = System.Drawing.Color.White;
+            this.compressionMenuButton.Name = "compressionMenuButton";
+            this.compressionMenuButton.Size = new System.Drawing.Size(89, 20);
+            this.compressionMenuButton.Text = "Compression";
+            // 
+            // compressButton
+            // 
+            this.compressButton.BackColor = System.Drawing.Color.Black;
+            this.compressButton.ForeColor = System.Drawing.Color.White;
+            this.compressButton.Name = "compressButton";
+            this.compressButton.Size = new System.Drawing.Size(180, 22);
+            this.compressButton.Text = "Compress";
+            // 
+            // decompressButton
+            // 
+            this.decompressButton.BackColor = System.Drawing.Color.Black;
+            this.decompressButton.ForeColor = System.Drawing.Color.White;
+            this.decompressButton.Name = "decompressButton";
+            this.decompressButton.Size = new System.Drawing.Size(180, 22);
+            this.decompressButton.Text = "Decompress";
+            // 
+            // saveButton
+            // 
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(43, 20);
+            this.saveButton.Text = "Save";
+            // 
+            // mainTextDisplay
+            // 
+            this.mainTextDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainTextDisplay.BackColor = System.Drawing.Color.Black;
+            this.mainTextDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainTextDisplay.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mainTextDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainTextDisplay.ForeColor = System.Drawing.Color.White;
+            this.mainTextDisplay.Location = new System.Drawing.Point(11, 35);
+            this.mainTextDisplay.Multiline = true;
+            this.mainTextDisplay.Name = "mainTextDisplay";
+            this.mainTextDisplay.ReadOnly = true;
+            this.mainTextDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.mainTextDisplay.Size = new System.Drawing.Size(661, 344);
+            this.mainTextDisplay.TabIndex = 1;
+            // 
+            // mainWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(684, 391);
+            this.Controls.Add(this.mainTextDisplay);
+            this.Controls.Add(this.mainMenuStrip);
+            this.ForeColor = System.Drawing.Color.White;
+            this.MainMenuStrip = this.mainMenuStrip;
+            this.MinimumSize = new System.Drawing.Size(460, 320);
+            this.Name = "mainWindow";
+            this.Opacity = 0.95D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "XML Viewer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip mainMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem openButton;
+        private System.Windows.Forms.ToolStripMenuItem convertButton;
+        private System.Windows.Forms.ToolStripMenuItem correctErrorsButton;
+        private System.Windows.Forms.ToolStripMenuItem compressionMenuButton;
+        private System.Windows.Forms.ToolStripMenuItem compressButton;
+        private System.Windows.Forms.ToolStripMenuItem decompressButton;
+        private System.Windows.Forms.ToolStripMenuItem saveButton;
+        private System.Windows.Forms.TextBox mainTextDisplay;
     }
 }
 
