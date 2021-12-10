@@ -31,13 +31,13 @@ namespace XML_Viewer
         {
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.openButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
             this.correctErrorsButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertButton = new System.Windows.Forms.ToolStripMenuItem();
             this.compressionMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.compressButton = new System.Windows.Forms.ToolStripMenuItem();
             this.decompressButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainTextDisplay = new System.Windows.Forms.TextBox();
+            this.mainTextDisplay = new System.Windows.Forms.RichTextBox();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,15 +45,17 @@ namespace XML_Viewer
             // 
             this.mainMenuStrip.BackColor = System.Drawing.Color.Black;
             this.mainMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.mainMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openButton,
             this.saveButton,
             this.correctErrorsButton,
             this.convertButton,
             this.compressionMenuButton});
-            this.mainMenuStrip.Location = new System.Drawing.Point(9, 8);
+            this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(505, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(577, 35);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -62,23 +64,30 @@ namespace XML_Viewer
             this.openButton.BackColor = System.Drawing.Color.Transparent;
             this.openButton.ForeColor = System.Drawing.Color.White;
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(48, 20);
+            this.openButton.Size = new System.Drawing.Size(72, 29);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // convertButton
+            // saveButton
             // 
-            this.convertButton.ForeColor = System.Drawing.Color.White;
-            this.convertButton.Name = "convertButton";
-            this.convertButton.Size = new System.Drawing.Size(106, 20);
-            this.convertButton.Text = "Convert to JSON";
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(65, 29);
+            this.saveButton.Text = "Save";
             // 
             // correctErrorsButton
             // 
             this.correctErrorsButton.ForeColor = System.Drawing.Color.White;
             this.correctErrorsButton.Name = "correctErrorsButton";
-            this.correctErrorsButton.Size = new System.Drawing.Size(91, 20);
+            this.correctErrorsButton.Size = new System.Drawing.Size(136, 29);
             this.correctErrorsButton.Text = "Correct Errors";
+            // 
+            // convertButton
+            // 
+            this.convertButton.ForeColor = System.Drawing.Color.White;
+            this.convertButton.Name = "convertButton";
+            this.convertButton.Size = new System.Drawing.Size(160, 29);
+            this.convertButton.Text = "Convert to JSON";
             // 
             // compressionMenuButton
             // 
@@ -87,7 +96,7 @@ namespace XML_Viewer
             this.decompressButton});
             this.compressionMenuButton.ForeColor = System.Drawing.Color.White;
             this.compressionMenuButton.Name = "compressionMenuButton";
-            this.compressionMenuButton.Size = new System.Drawing.Size(89, 20);
+            this.compressionMenuButton.Size = new System.Drawing.Size(133, 29);
             this.compressionMenuButton.Text = "Compression";
             // 
             // compressButton
@@ -95,7 +104,7 @@ namespace XML_Viewer
             this.compressButton.BackColor = System.Drawing.Color.Black;
             this.compressButton.ForeColor = System.Drawing.Color.White;
             this.compressButton.Name = "compressButton";
-            this.compressButton.Size = new System.Drawing.Size(180, 22);
+            this.compressButton.Size = new System.Drawing.Size(213, 34);
             this.compressButton.Text = "Compress";
             // 
             // decompressButton
@@ -103,15 +112,8 @@ namespace XML_Viewer
             this.decompressButton.BackColor = System.Drawing.Color.Black;
             this.decompressButton.ForeColor = System.Drawing.Color.White;
             this.decompressButton.Name = "decompressButton";
-            this.decompressButton.Size = new System.Drawing.Size(180, 22);
+            this.decompressButton.Size = new System.Drawing.Size(213, 34);
             this.decompressButton.Text = "Decompress";
-            // 
-            // saveButton
-            // 
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(43, 20);
-            this.saveButton.Text = "Save";
             // 
             // mainTextDisplay
             // 
@@ -120,28 +122,29 @@ namespace XML_Viewer
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTextDisplay.BackColor = System.Drawing.Color.Black;
             this.mainTextDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mainTextDisplay.Cursor = System.Windows.Forms.Cursors.Default;
-            this.mainTextDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainTextDisplay.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.mainTextDisplay.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTextDisplay.ForeColor = System.Drawing.Color.White;
-            this.mainTextDisplay.Location = new System.Drawing.Point(11, 35);
-            this.mainTextDisplay.Multiline = true;
+            this.mainTextDisplay.Location = new System.Drawing.Point(12, 50);
             this.mainTextDisplay.Name = "mainTextDisplay";
             this.mainTextDisplay.ReadOnly = true;
-            this.mainTextDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.mainTextDisplay.Size = new System.Drawing.Size(661, 344);
+            this.mainTextDisplay.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.mainTextDisplay.Size = new System.Drawing.Size(1002, 540);
             this.mainTextDisplay.TabIndex = 1;
+            this.mainTextDisplay.Text = "";
             // 
             // mainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(684, 391);
+            this.ClientSize = new System.Drawing.Size(1026, 602);
             this.Controls.Add(this.mainTextDisplay);
             this.Controls.Add(this.mainMenuStrip);
             this.ForeColor = System.Drawing.Color.White;
             this.MainMenuStrip = this.mainMenuStrip;
-            this.MinimumSize = new System.Drawing.Size(460, 320);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(679, 462);
             this.Name = "mainWindow";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -164,7 +167,7 @@ namespace XML_Viewer
         private System.Windows.Forms.ToolStripMenuItem compressButton;
         private System.Windows.Forms.ToolStripMenuItem decompressButton;
         private System.Windows.Forms.ToolStripMenuItem saveButton;
-        private System.Windows.Forms.TextBox mainTextDisplay;
+        private System.Windows.Forms.RichTextBox mainTextDisplay;
     }
 }
 

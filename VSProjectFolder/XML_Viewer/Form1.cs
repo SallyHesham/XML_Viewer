@@ -33,23 +33,6 @@ namespace XML_Viewer
                 // I currently display the file as is
                 // this will change later
                 this.mainTextDisplay.Text = File.ReadAllText(fileName);
-
-
-                //testing for the parser (all good)
-                /*
-                Tree test = new Tree();
-                test.populateTree(fileName);
-                Node n = test.getRoot();
-                this.mainTextDisplay.Text += n.getTag() + n.getData();
-                List<Node> children = n.getChildren();
-                this.mainTextDisplay.Text += children[0].getTag() + children[0].getData();
-                children = children[0].getChildren();
-                this.mainTextDisplay.Text += children[0].getTag() + children[0].getData();
-                this.mainTextDisplay.Text += children[1].getTag() + children[1].getData();
-                children = children[2].getChildren();
-                children = children[0].getChildren();
-                this.mainTextDisplay.Text += children[0].getTag() + children[0].getData();
-                */
             }
             
         }
