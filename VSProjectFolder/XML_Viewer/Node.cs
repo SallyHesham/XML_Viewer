@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace XML_Viewer
 {
+    /// <summary>
+    /// node class
+    /// not much use creating nodes outside of tree
+    /// useful functions are:
+    /// getTag()
+    /// getData()
+    /// getChildren()
+    /// </summary>
+
     class Node
     {
         private string tag;
@@ -31,6 +40,11 @@ namespace XML_Viewer
         public string getData()
         {
             return data;
+        }
+
+        public void setData(string d)
+        {
+            data = d;
         }
 
         public List<Node> getChildren()

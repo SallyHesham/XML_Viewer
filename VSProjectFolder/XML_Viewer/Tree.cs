@@ -7,11 +7,19 @@ using System.IO;
 
 namespace XML_Viewer
 {
+    /// <summary>
+    /// tree class used for xml
+    /// steps to use:
+    /// Tree example = new Tree();
+    /// example.populateTree(xmlFilePath);
+    /// Node root = example.getRoot();
+    /// </summary>
+
     class Tree
     {
         private Node root;
 
-        Tree()
+        public Tree()
         {
             root = null;
         }
@@ -28,42 +36,44 @@ namespace XML_Viewer
         /// <param name="file">the xml file used to fill in the tree</param>
         public void populateTree(string file)
         {
-            char letter;
-            Node lastPopped = null;
+            string line;
+            string[] words;
+            //Node lastPopped = null;
             Stack<Node> nodes = new Stack<Node>();
             StreamReader reader = new StreamReader(file);
 
             // while not at file end
             while(reader.Peek() != -1)
             {
-                // read first character
-                letter = (char)reader.Read();
+                // read first line
+                line = reader.ReadLine();
+                line = line.Trim();
+
                 // if tag
-                if(letter == '<')
+                if(line[0] == '<')
                 {
                     // empty strings
                     string tag = "";
                     string data = "";
 
                     // if opening tag
-                    if ((char)reader.Peek() != '/')
+                    if (line[1] != '/')
                     {
-                        // read and store tag
-                        while((char)reader.Peek() != '>')
-                        {
-                            tag += (char)reader.Read();
-                        }
-                        //skip '>' character
-                        reader.Read();
+                        // split line into words
+                        words = line.Split('<', '>');
 
-                        // if data
-                        if((char)reader.Peek() != '<')
+                        // store tag
+                        tag = words[1];
+
+                        // if tag and data store data as well
+                        if(words.Length == 5)
                         {
-                            data += (char)reader.Read();
+                            data = words[2];
                         }
 
                         // create node
                         Node n = new Node(tag, data);
+
                         // if first node
                         if (nodes.Count == 0)
                         {
@@ -77,26 +87,29 @@ namespace XML_Viewer
                             nodes.Push(n);
                         }
 
+                        // if closing tag exists
+                        if (words.Length == 5)
+                        {
+                            nodes.Pop();
+                        }
+
                     }
                     // if closing tag
                     else
                     {
-                        while((char)reader.Peek() != '<')
-                        {
-                            reader.Read();
-                        }
-                        lastPopped = nodes.Pop();
+                        nodes.Pop();
                     }
                 }
                 // if data
-                else if(letter != '\n' && letter != '\t')
+                else
                 {
-
+                    Node temp = nodes.Peek();
+                    temp.setData(line);
                 }
             }
 
-            // when finished set root
-            root = lastPopped;
         }
+
+
     }
 }
