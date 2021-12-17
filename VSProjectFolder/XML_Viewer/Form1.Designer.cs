@@ -55,7 +55,7 @@ namespace XML_Viewer
             this.compressionMenuButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(577, 35);
+            this.mainMenuStrip.Size = new System.Drawing.Size(754, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -88,6 +88,7 @@ namespace XML_Viewer
             this.convertButton.Name = "convertButton";
             this.convertButton.Size = new System.Drawing.Size(160, 29);
             this.convertButton.Text = "Convert to JSON";
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
             // compressionMenuButton
             // 
