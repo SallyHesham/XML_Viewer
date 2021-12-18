@@ -34,10 +34,9 @@ namespace XML_Viewer
             this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
             this.correctErrorsButton = new System.Windows.Forms.ToolStripMenuItem();
             this.convertButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.compressionMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.compressButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.decompressButton = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTextDisplay = new System.Windows.Forms.RichTextBox();
+            this.decompressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +51,11 @@ namespace XML_Viewer
             this.saveButton,
             this.correctErrorsButton,
             this.convertButton,
-            this.compressionMenuButton});
+            this.compressButton,
+            this.decompressToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(577, 35);
+            this.mainMenuStrip.Size = new System.Drawing.Size(856, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -89,31 +89,12 @@ namespace XML_Viewer
             this.convertButton.Size = new System.Drawing.Size(160, 29);
             this.convertButton.Text = "Convert to JSON";
             // 
-            // compressionMenuButton
-            // 
-            this.compressionMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.compressButton,
-            this.decompressButton});
-            this.compressionMenuButton.ForeColor = System.Drawing.Color.White;
-            this.compressionMenuButton.Name = "compressionMenuButton";
-            this.compressionMenuButton.Size = new System.Drawing.Size(133, 29);
-            this.compressionMenuButton.Text = "Compression";
-            // 
             // compressButton
             // 
-            this.compressButton.BackColor = System.Drawing.Color.Black;
             this.compressButton.ForeColor = System.Drawing.Color.White;
             this.compressButton.Name = "compressButton";
-            this.compressButton.Size = new System.Drawing.Size(213, 34);
+            this.compressButton.Size = new System.Drawing.Size(108, 29);
             this.compressButton.Text = "Compress";
-            // 
-            // decompressButton
-            // 
-            this.decompressButton.BackColor = System.Drawing.Color.Black;
-            this.decompressButton.ForeColor = System.Drawing.Color.White;
-            this.decompressButton.Name = "decompressButton";
-            this.decompressButton.Size = new System.Drawing.Size(213, 34);
-            this.decompressButton.Text = "Decompress";
             // 
             // mainTextDisplay
             // 
@@ -132,6 +113,12 @@ namespace XML_Viewer
             this.mainTextDisplay.Size = new System.Drawing.Size(1002, 540);
             this.mainTextDisplay.TabIndex = 1;
             this.mainTextDisplay.Text = "";
+            // 
+            // decompressToolStripMenuItem
+            // 
+            this.decompressToolStripMenuItem.Name = "decompressToolStripMenuItem";
+            this.decompressToolStripMenuItem.Size = new System.Drawing.Size(127, 29);
+            this.decompressToolStripMenuItem.Text = "Decompress";
             // 
             // mainWindow
             // 
@@ -163,11 +150,10 @@ namespace XML_Viewer
         private System.Windows.Forms.ToolStripMenuItem openButton;
         private System.Windows.Forms.ToolStripMenuItem convertButton;
         private System.Windows.Forms.ToolStripMenuItem correctErrorsButton;
-        private System.Windows.Forms.ToolStripMenuItem compressionMenuButton;
         private System.Windows.Forms.ToolStripMenuItem compressButton;
-        private System.Windows.Forms.ToolStripMenuItem decompressButton;
         private System.Windows.Forms.ToolStripMenuItem saveButton;
         private System.Windows.Forms.RichTextBox mainTextDisplay;
+        private System.Windows.Forms.ToolStripMenuItem decompressToolStripMenuItem;
     }
 }
 
