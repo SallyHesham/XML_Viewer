@@ -45,11 +45,14 @@ namespace XML_Viewer
         {
             string cmp;
             string dcmp = File.ReadAllText(xml_ref.file_path);
+
             cmp = Compression.Compress(dcmp);
+
             //was is the compressed file's extension???
             StreamWriter writer = new StreamWriter("CompressedFile.txt");
             writer.Write(cmp);
             writer.Close();
+
             this.mainTextDisplay.Text = cmp;
             decompressButton.Enabled = true;
             compressButton.Enabled = false;
@@ -60,11 +63,16 @@ namespace XML_Viewer
             string cmp;
             cmp = File.ReadAllText("CompressedFile.txt");
             string dcmp;
+
             dcmp = Compression.Decompress(cmp);
+
             StreamWriter writer = new StreamWriter("DecompressedFile.xml");
             writer.Write(dcmp);
             writer.Close();
-            this.mainTextDisplay.Text = dcmp;
+
+            this.mainTextDisplay.Text = "";
+            xml_ref.file_path = Path.GetFullPath("DecompressedFile.xml");
+            displayFormattedAlternate();
             compressButton.Enabled = true;
             decompressButton.Enabled = false;
         }
@@ -72,9 +80,104 @@ namespace XML_Viewer
         private void correctErrorsButton_Click_1(object sender, EventArgs e)
         {
             ErrorCorrection.check();
-            this.mainTextDisplay.Text = File.ReadAllText(xml_ref.file_path);
+            this.mainTextDisplay.Text = "";
+            displayFormattedAlternate();
             compressButton.Enabled = true;
             convertButton.Enabled = true;
+            correctErrorsButton.Enabled = false;
+        }
+
+        private void displayFormatted()
+        {
+            StreamReader reader = new StreamReader(xml_ref.file_path);
+            string line;
+            string lineTemp;
+            string[] arrTemp;
+            //string[] arr = text.Split(new string[] { "<" }, StringSplitOptions.RemoveEmptyEntries);
+            
+            while (reader.Peek() != -1)
+            {
+                line = reader.ReadLine();
+                lineTemp = line.Trim();
+
+                if (lineTemp[0] == '<')
+                {
+                    arrTemp = lineTemp.Split('<', '>');
+                    if (arrTemp.Length == 3)
+                    {
+                        this.mainTextDisplay.SelectionColor = xml_ref.highlights;
+                        this.mainTextDisplay.AppendText(line + Environment.NewLine);
+                    }
+                    else
+                    {
+                        arrTemp = line.Split('<', '>');
+                        this.mainTextDisplay.AppendText(arrTemp[0]);
+                        this.mainTextDisplay.SelectionColor = xml_ref.highlights;
+                        this.mainTextDisplay.AppendText('<' + arrTemp[1] + '>');
+                        this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                        this.mainTextDisplay.AppendText(arrTemp[2]);
+                        this.mainTextDisplay.SelectionColor = xml_ref.highlights;
+                        this.mainTextDisplay.AppendText('<' + arrTemp[3] + '>');
+                        this.mainTextDisplay.AppendText(arrTemp[4] + Environment.NewLine);
+                    }
+                }
+                else
+                {
+                    this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                    this.mainTextDisplay.AppendText(line + Environment.NewLine);
+                }
+            }
+            reader.Close();
+        }
+
+        private void displayFormattedAlternate()
+        {
+            StreamReader reader = new StreamReader(xml_ref.file_path);
+            string line;
+            string lineTemp;
+            string[] arrTemp;
+            //string[] arr = text.Split(new string[] { "<" }, StringSplitOptions.RemoveEmptyEntries);
+
+            while (reader.Peek() != -1)
+            {
+                line = reader.ReadLine();
+                lineTemp = line.Trim();
+
+                if (lineTemp[0] == '<')
+                {
+                    arrTemp = lineTemp.Split('<', '>');
+                    if (arrTemp.Length == 3)
+                    {
+                        arrTemp = line.Split('<', '>');
+                        this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                        this.mainTextDisplay.AppendText(arrTemp[0] + '<');
+                        this.mainTextDisplay.SelectionColor = xml_ref.highlights;
+                        this.mainTextDisplay.AppendText(arrTemp[1]);
+                        this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                        this.mainTextDisplay.AppendText('>' + arrTemp[2] + Environment.NewLine);
+                    }
+                    else
+                    {
+                        arrTemp = line.Split('<', '>');
+                        this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                        this.mainTextDisplay.AppendText(arrTemp[0] + '<');
+                        this.mainTextDisplay.SelectionColor = xml_ref.highlights;
+                        this.mainTextDisplay.AppendText(arrTemp[1]);
+                        this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                        this.mainTextDisplay.AppendText('>' + arrTemp[2] + '<');
+                        this.mainTextDisplay.SelectionColor = xml_ref.highlights;
+                        this.mainTextDisplay.AppendText(arrTemp[3]);
+                        this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                        this.mainTextDisplay.AppendText('>' + arrTemp[4] + Environment.NewLine);
+                    }
+                }
+                else
+                {
+                    this.mainTextDisplay.SelectionColor = xml_ref.paragraphColor;
+                    this.mainTextDisplay.AppendText(line + Environment.NewLine);
+                }
+            }
+            reader.Close();
         }
     }
 }
