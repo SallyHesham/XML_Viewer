@@ -25,7 +25,7 @@ namespace XML_Viewer
             OpenFileDialog fileBrowser = new OpenFileDialog();
             fileBrowser.Title = "Select XML file";
             fileBrowser.Filter = "XML files (*.xml)|*.xml";
-            
+
             if (fileBrowser.ShowDialog() == DialogResult.OK)
             {
                 // fileName is the full path of the file selected by the user
@@ -35,7 +35,7 @@ namespace XML_Viewer
                 // this will change later
                 this.mainTextDisplay.Text = File.ReadAllText(fileName);
             }
-            
+
         }
 
         private void compressButton_Click(object sender, EventArgs e)
@@ -61,5 +61,9 @@ namespace XML_Viewer
             writer.Close();
             this.mainTextDisplay.Text = dcmp;
         }
+        private void correctErrorsButton_Click(object sender, EventArgs e)
+        {
+            ErrorCorrection.check();
+            this.mainTextDisplay.Text = File.ReadAllText(xml_ref.file_path);
     }
 }
