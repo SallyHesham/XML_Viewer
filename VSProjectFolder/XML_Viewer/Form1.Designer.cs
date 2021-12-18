@@ -31,7 +31,6 @@ namespace XML_Viewer
         {
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.openButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
             this.correctErrorsButton = new System.Windows.Forms.ToolStripMenuItem();
             this.convertButton = new System.Windows.Forms.ToolStripMenuItem();
             this.compressButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,14 +47,13 @@ namespace XML_Viewer
             this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openButton,
-            this.saveButton,
             this.correctErrorsButton,
             this.convertButton,
             this.compressButton,
             this.decompressButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(676, 33);
+            this.mainMenuStrip.Size = new System.Drawing.Size(629, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -68,19 +66,12 @@ namespace XML_Viewer
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
-            // saveButton
-            // 
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(65, 29);
-            this.saveButton.Text = "Save";
-            // 
             // correctErrorsButton
             // 
             this.correctErrorsButton.ForeColor = System.Drawing.Color.White;
             this.correctErrorsButton.Name = "correctErrorsButton";
-            this.correctErrorsButton.Size = new System.Drawing.Size(136, 29);
-            this.correctErrorsButton.Text = "Correct Errors";
+            this.correctErrorsButton.Size = new System.Drawing.Size(154, 29);
+            this.correctErrorsButton.Text = "Check for Errors";
             // 
             // convertButton
             // 
@@ -154,7 +145,6 @@ namespace XML_Viewer
         private System.Windows.Forms.ToolStripMenuItem convertButton;
         private System.Windows.Forms.ToolStripMenuItem correctErrorsButton;
         private System.Windows.Forms.ToolStripMenuItem compressButton;
-        private System.Windows.Forms.ToolStripMenuItem saveButton;
         private System.Windows.Forms.RichTextBox mainTextDisplay;
         private System.Windows.Forms.ToolStripMenuItem decompressButton;
     }

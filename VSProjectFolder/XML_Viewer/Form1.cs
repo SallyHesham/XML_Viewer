@@ -65,5 +65,6 @@ namespace XML_Viewer
         {
             ErrorCorrection.check();
             this.mainTextDisplay.Text = File.ReadAllText(xml_ref.file_path);
+        }
     }
 }
