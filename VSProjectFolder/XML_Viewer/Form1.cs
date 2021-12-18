@@ -61,7 +61,8 @@ namespace XML_Viewer
             writer.Close();
             this.mainTextDisplay.Text = dcmp;
         }
-        private void correctErrorsButton_Click(object sender, EventArgs e)
+        
+        private void correctErrorsButton_Click_1(object sender, EventArgs e)
         {
             ErrorCorrection.check();
             this.mainTextDisplay.Text = File.ReadAllText(xml_ref.file_path);

@@ -53,7 +53,7 @@ namespace XML_Viewer
             this.decompressButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(629, 33);
+            this.mainMenuStrip.Size = new System.Drawing.Size(812, 36);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -62,7 +62,7 @@ namespace XML_Viewer
             this.openButton.BackColor = System.Drawing.Color.Transparent;
             this.openButton.ForeColor = System.Drawing.Color.White;
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(72, 29);
+            this.openButton.Size = new System.Drawing.Size(72, 32);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
@@ -70,21 +70,22 @@ namespace XML_Viewer
             // 
             this.correctErrorsButton.ForeColor = System.Drawing.Color.White;
             this.correctErrorsButton.Name = "correctErrorsButton";
-            this.correctErrorsButton.Size = new System.Drawing.Size(154, 29);
+            this.correctErrorsButton.Size = new System.Drawing.Size(154, 32);
             this.correctErrorsButton.Text = "Check for Errors";
+            this.correctErrorsButton.Click += new System.EventHandler(this.correctErrorsButton_Click_1);
             // 
             // convertButton
             // 
             this.convertButton.ForeColor = System.Drawing.Color.White;
             this.convertButton.Name = "convertButton";
-            this.convertButton.Size = new System.Drawing.Size(160, 29);
+            this.convertButton.Size = new System.Drawing.Size(160, 32);
             this.convertButton.Text = "Convert to JSON";
             // 
             // compressButton
             // 
             this.compressButton.ForeColor = System.Drawing.Color.White;
             this.compressButton.Name = "compressButton";
-            this.compressButton.Size = new System.Drawing.Size(108, 29);
+            this.compressButton.Size = new System.Drawing.Size(108, 32);
             this.compressButton.Text = "Compress";
             this.compressButton.Click += new System.EventHandler(this.compressButton_Click);
             // 
@@ -92,7 +93,7 @@ namespace XML_Viewer
             // 
             this.decompressButton.ForeColor = System.Drawing.Color.White;
             this.decompressButton.Name = "decompressButton";
-            this.decompressButton.Size = new System.Drawing.Size(127, 29);
+            this.decompressButton.Size = new System.Drawing.Size(127, 32);
             this.decompressButton.Text = "Decompress";
             this.decompressButton.Click += new System.EventHandler(this.decompressButton_Click);
             // 

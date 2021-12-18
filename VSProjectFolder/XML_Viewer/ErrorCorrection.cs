@@ -30,7 +30,8 @@ namespace XML_Viewer
                 }
 
                 string[] arr = line.Split('<', '>');
-                if (arr.Length <= 3)
+                string c = arr[2];
+                if (arr.Length <= 3 && c == "")
                 {
                     tag = arr[1];
                     // if closing tag
@@ -55,7 +56,7 @@ namespace XML_Viewer
                             writer.WriteLine(lineCorrection);
 
                             // if original closing tag is still needed
-
+                            if (tagsStack.Count == 0) continue;
                             if (tagsStack.Peek() == tag)
                             {
                                 tagsStack.Pop();
