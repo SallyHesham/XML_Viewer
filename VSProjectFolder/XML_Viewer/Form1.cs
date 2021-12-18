@@ -40,23 +40,26 @@ namespace XML_Viewer
 
         private void compressButton_Click(object sender, EventArgs e)
         {
-            List<int> cmp;
-            cmp = Compression.Compress(xml_ref.file_path);
+            string cmp;
+            string dcmp = File.ReadAllText(xml_ref.file_path);
+            cmp = Compression.Compress(dcmp);
             //was is the compressed file's extension???
             StreamWriter writer = new StreamWriter("CompressedFile.txt");
             writer.Write(cmp);
             writer.Close();
+            this.mainTextDisplay.Text = cmp;
         }
 
         private void decompressButton_Click(object sender, EventArgs e)
         {
-            List<int> cmp;
+            string cmp;
             cmp = File.ReadAllText("CompressedFile.txt");
             string dcmp;
             dcmp = Compression.Decompress(cmp);
             StreamWriter writer = new StreamWriter("DecompressedFile.xml");
             writer.Write(dcmp);
             writer.Close();
+            this.mainTextDisplay.Text = dcmp;
         }
     }
 }

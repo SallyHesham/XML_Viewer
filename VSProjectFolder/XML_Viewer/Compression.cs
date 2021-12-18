@@ -51,7 +51,7 @@ namespace XML_Viewer
         for (int i = 0; i < 256; i++)
             dictionary.Add(i, ((char)i).ToString());
         //convert string to list<int> 
-        List<int> compressed = new List<int>(Array.ConvertAll(compressedString.Split(" "), int.Parse));
+        List<int> compressed = new List<int>(Array.ConvertAll(compressedString.Split(' '), int.Parse));
 
         string w = dictionary[compressed[0]];
         compressed.RemoveAt(0);
