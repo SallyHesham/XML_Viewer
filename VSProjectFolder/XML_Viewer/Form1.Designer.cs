@@ -35,8 +35,9 @@ namespace XML_Viewer
             this.correctErrorsButton = new System.Windows.Forms.ToolStripMenuItem();
             this.convertButton = new System.Windows.Forms.ToolStripMenuItem();
             this.compressButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainTextDisplay = new System.Windows.Forms.RichTextBox();
             this.decompressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainTextDisplay = new System.Windows.Forms.RichTextBox();
+            this.decompressButton = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +53,11 @@ namespace XML_Viewer
             this.correctErrorsButton,
             this.convertButton,
             this.compressButton,
+            this.decompressButton,
             this.decompressToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(856, 33);
+            this.mainMenuStrip.Size = new System.Drawing.Size(983, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -95,6 +97,13 @@ namespace XML_Viewer
             this.compressButton.Name = "compressButton";
             this.compressButton.Size = new System.Drawing.Size(108, 29);
             this.compressButton.Text = "Compress";
+            this.compressButton.Click += new System.EventHandler(this.compressButton_Click);
+            // 
+            // decompressToolStripMenuItem
+            // 
+            this.decompressToolStripMenuItem.Name = "decompressToolStripMenuItem";
+            this.decompressToolStripMenuItem.Size = new System.Drawing.Size(127, 29);
+            this.decompressToolStripMenuItem.Text = "Decompress";
             // 
             // mainTextDisplay
             // 
@@ -114,11 +123,13 @@ namespace XML_Viewer
             this.mainTextDisplay.TabIndex = 1;
             this.mainTextDisplay.Text = "";
             // 
-            // decompressToolStripMenuItem
+            // decompressButton
             // 
-            this.decompressToolStripMenuItem.Name = "decompressToolStripMenuItem";
-            this.decompressToolStripMenuItem.Size = new System.Drawing.Size(127, 29);
-            this.decompressToolStripMenuItem.Text = "Decompress";
+            this.decompressButton.ForeColor = System.Drawing.Color.White;
+            this.decompressButton.Name = "decompressButton";
+            this.decompressButton.Size = new System.Drawing.Size(127, 29);
+            this.decompressButton.Text = "Decompress";
+            this.decompressButton.Click += new System.EventHandler(this.decompressButton_Click);
             // 
             // mainWindow
             // 
@@ -154,6 +165,7 @@ namespace XML_Viewer
         private System.Windows.Forms.ToolStripMenuItem saveButton;
         private System.Windows.Forms.RichTextBox mainTextDisplay;
         private System.Windows.Forms.ToolStripMenuItem decompressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decompressButton;
     }
 }
 

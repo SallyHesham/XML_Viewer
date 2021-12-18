@@ -30,11 +30,33 @@ namespace XML_Viewer
             {
                 // fileName is the full path of the file selected by the user
                 string fileName = fileBrowser.FileName;
+                xml_ref.file_path = fileName;
                 // I currently display the file as is
                 // this will change later
                 this.mainTextDisplay.Text = File.ReadAllText(fileName);
             }
             
+        }
+
+        private void compressButton_Click(object sender, EventArgs e)
+        {
+            List<int> cmp;
+            cmp = Compression.Compress(xml_ref.file_path);
+            //was is the compressed file's extension???
+            StreamWriter writer = new StreamWriter("CompressedFile.txt");
+            writer.Write(cmp);
+            writer.Close();
+        }
+
+        private void decompressButton_Click(object sender, EventArgs e)
+        {
+            List<int> cmp;
+            cmp = File.ReadAllText("CompressedFile.txt");
+            string dcmp;
+            dcmp = Compression.Decompress(cmp);
+            StreamWriter writer = new StreamWriter("DecompressedFile.txt");
+            writer.Write(dcmp);
+            writer.Close();
         }
     }
 }
