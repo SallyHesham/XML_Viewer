@@ -2,9 +2,9 @@
 {
     public static void Main(string[] args)
     {
-        List<int> compressed = Compress(@"C:\Users\lenovo\Downloads\sample.xml");
-        Console.WriteLine(string.Join(", ", compressed));
-        string decompressed = Decompress(compressed);
+        string compressedString = Compress(@"C:\Users\lenovo\Downloads\sample.xml");
+        Console.WriteLine(string.Join(", ", compressedString));
+        string decompressed = Decompress(compressedString);
         Console.WriteLine(decompressed);
 
         // to Display it on the console
@@ -18,7 +18,7 @@
 
     }
 
-    public static List<int> Compress(string uncompressed)
+    public static string Compress(string uncompressed)
     {
         // build the dictionary
         Dictionary<string, int> dictionary = new Dictionary<string, int>();
@@ -48,16 +48,20 @@
         // write remaining output if necessary
         if (!string.IsNullOrEmpty(w))
             compressed.Add(dictionary[w]);
+        // convert list<int> to string
+        string compressedString = string.Join(" ", compressed.ToArray());
 
-        return compressed;
+        return compressedString;
     }
 
-    public static string Decompress(List<int> compressed)
+    public static string Decompress(string compressedString)
     {
         // build the dictionary
         Dictionary<int, string> dictionary = new Dictionary<int, string>();
         for (int i = 0; i < 256; i++)
             dictionary.Add(i, ((char)i).ToString());
+        //convert string to list<int> 
+        List<int> compressed = new List<int>(Array.ConvertAll(compressedString.Split(" "), int.Parse));
 
         string w = dictionary[compressed[0]];
         compressed.RemoveAt(0);
