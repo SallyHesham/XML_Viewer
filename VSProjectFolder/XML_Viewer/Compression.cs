@@ -1,123 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-
-namespace XML_Viewer
+﻿public class Compression
 {
-    
-    class compression
+    public static void Main(string[] args)
     {
-        //add key in dictionary or updat it and increase its value by 1 
-        public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, List<TValue>> dictionary, TKey key, TValue value)
+        List<int> compressed = Compress(@"C:\Users\lenovo\Downloads\sample.xml");
+        Console.WriteLine(string.Join(", ", compressed));
+        string decompressed = Decompress(compressed);
+        Console.WriteLine(decompressed);
+
+        // to Display it on the console
+        XmlDocument doc = new XmlDocument();
+        XmlTextReader reader = new XmlTextReader(decompressed);
+        reader.Read();
+        // load reader   
+        doc.Load(reader);
+        // Display contents on the console  
+        doc.Save(Console.Out);
+
+    }
+
+    public static List<int> Compress(string uncompressed)
+    {
+        // build the dictionary
+        Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        for (int i = 0; i < 256; i++)
+            dictionary.Add(((char)i).ToString(), i);
+
+        string w = string.Empty;
+        List<int> compressed = new List<int>();
+
+        foreach (char c in uncompressed)
         {
-            if (dictionary.ContainsKey(key))
+            string wc = w + c;
+            if (dictionary.ContainsKey(wc))
             {
-                dictionary[key].Add(value++);
+                w = wc;
             }
             else
             {
-                dictionary.Add(key, new List<TValue> { value });
+                // write w to output
+                compressed.Add(dictionary[w]);
+                // wc is a new sequence; add it to the dictionary
+                dictionary.Add(wc, dictionary.Count);
+                w = c.ToString();
             }
         }
 
-        //calculate the word frequency in the text.
-        public Dictionary getWord(string file)
+        // write remaining output if necessary
+        if (!string.IsNullOrEmpty(w))
+            compressed.Add(dictionary[w]);
+
+        return compressed;
+    }
+
+    public static string Decompress(List<int> compressed)
+    {
+        // build the dictionary
+        Dictionary<int, string> dictionary = new Dictionary<int, string>();
+        for (int i = 0; i < 256; i++)
+            dictionary.Add(i, ((char)i).ToString());
+
+        string w = dictionary[compressed[0]];
+        compressed.RemoveAt(0);
+        StringBuilder decompressed = new StringBuilder(w);
+
+        foreach (int k in compressed)
         {
-            Dictionary<string, List<string>> dct = new Dictionary<string, List<string>>();
-            StreamReader reader = new StreamReader(file);
-            string line;
-            string words[];
-            int value = 0;
+            string entry = null;
+            if (dictionary.ContainsKey(k))
+                entry = dictionary[k];
+            else if (k == dictionary.Count)
+                entry = w + w[0];
 
-            while (reader.Peek() != -1)
-            {
-                line = line.Trim();
-                words = line.Split(" ");
+            decompressed.Append(entry);
 
-                foreach (string i in words)
-                {
-                    //Add an identifier(</w>) at the end of each word to identify the end of a word
-                    StringBuilder s = new StringBuilder(i);
-                    s.Append("</W>");
-                    dct.AddOrUpdate(i, ++value);
+            // new sequence; add it to the dictionary
+            dictionary.Add(dictionary.Count, w + entry[0]);
 
-                }
-            }
-            return dct;
+            w = entry;
         }
 
-        //Split the word into characters and then calculate the character frequency
-        public Dictionary getToken(Dictionary dct)
-        {
-            Dictionary<string, List<string>> dct_token = new Dictionary<string, List<string>>();
 
-            char chars[];
-            int value = 0;
-            string s;
-
-            foreach (KeyValuePair<int, string> kvp in dct)
-            {
-                chars = (kvp.Key).ToCharArray();
-                foreach (char c in chars)
-                    dct_token.AddOrUpdate(c, value);
-            }
-            return dct_token;
-        }
-
-        //calculate the Pair frequency
-        public Dictionary getPair(Dictionary dct)
-        {
-            Dictionary<string, List<string>> dct_char = new Dictionary<string, List<string>>();
-            Dictionary<string, List<string>> dct_pair = new Dictionary<string, List<string>>();
-
-            char chars[];
-            int value = 0;
-            string s;
-
-            foreach (KeyValuePair<string, int> kvp in dct)
-            {
-                chars = (kvp.Key).ToCharArray();
-                for (int j = 0; j < len(char) j++)
-                    s = chars[j] "," chars[j + 1];
-                    dct_pair.AddOrUpdate(s, value);
-            }
-            return dct_pair;
-        }
-
-        // merge the most frequently occurring byte pairing.
-        public Dictionary mergeWords(Dictionary dct_pair, Dictionary vIN)
-        {
-            vOUT[];
-            joined_pair = Regex.Escape(" " .join(dct_pair))
-            p = Regex.Compile(r'(?<!\S)' + joined_pair + r'(?!\S)')
-            for word in vIN:
-            wOUT = p.sub(''.join(dct_pair), word)
-            vOUT[wOUT] = vIN[word]
-            return vOUT;
-        }
-
-        public compress(string file)
-        {
-            Dictionary<string, List<string>> pairs1 = new Dictionary<string, List<string>>();
-            var vocab = getWord(string file);
-            var best;
-            var tokens;
-            int num_merges = 1000;
-            for (int i = 0; i < num_merges; i++)
-            {
-                pairs1 = getPair(vocab);
-                // most frequent pair
-                foreach (KeyValuePair<string, int> kvp in pairs1)
-                {
-                    if (kvp.Value > (kvp + 1).Value)
-                        best = kvp.Key;
-                }
-
-                vocab = mergeWords(best, vocab);
-                tokens = getToken(vocab);
-            }
-            return tokens;
-        }    
+        return decompressed.ToString();
     }
 }
