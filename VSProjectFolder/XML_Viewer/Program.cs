@@ -19,4 +19,8 @@ namespace XML_Viewer
             Application.Run(new mainWindow());
         }
     }
+    public class xml_ref
+    {
+        public static string file_path;
+    }
 }

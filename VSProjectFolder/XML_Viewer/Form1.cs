@@ -30,11 +30,18 @@ namespace XML_Viewer
             {
                 // fileName is the full path of the file selected by the user
                 string fileName = fileBrowser.FileName;
+                xml_ref.file_path = fileName;
                 // I currently display the file as is
                 // this will change later
                 this.mainTextDisplay.Text = File.ReadAllText(fileName);
             }
             
+        }
+
+        private void correctErrorsButton_Click(object sender, EventArgs e)
+        {
+            ErrorCorrection.check();
+            this.mainTextDisplay.Text = File.ReadAllText(xml_ref.file_path);
         }
     }
 }
