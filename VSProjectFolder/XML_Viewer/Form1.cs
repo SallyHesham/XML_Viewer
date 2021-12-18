@@ -54,7 +54,7 @@ namespace XML_Viewer
             cmp = File.ReadAllText("CompressedFile.txt");
             string dcmp;
             dcmp = Compression.Decompress(cmp);
-            StreamWriter writer = new StreamWriter("DecompressedFile.txt");
+            StreamWriter writer = new StreamWriter("DecompressedFile.xml");
             writer.Write(dcmp);
             writer.Close();
         }
