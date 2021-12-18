@@ -35,7 +35,10 @@ namespace XML_Viewer
                 // this will change later
                 this.mainTextDisplay.Text = File.ReadAllText(fileName);
             }
-
+            correctErrorsButton.Enabled = true;
+            convertButton.Enabled = false;
+            compressButton.Enabled = false;
+            decompressButton.Enabled = false;
         }
 
         private void compressButton_Click(object sender, EventArgs e)
@@ -48,6 +51,8 @@ namespace XML_Viewer
             writer.Write(cmp);
             writer.Close();
             this.mainTextDisplay.Text = cmp;
+            decompressButton.Enabled = true;
+            compressButton.Enabled = false;
         }
 
         private void decompressButton_Click(object sender, EventArgs e)
@@ -60,12 +65,16 @@ namespace XML_Viewer
             writer.Write(dcmp);
             writer.Close();
             this.mainTextDisplay.Text = dcmp;
+            compressButton.Enabled = true;
+            decompressButton.Enabled = false;
         }
         
         private void correctErrorsButton_Click_1(object sender, EventArgs e)
         {
             ErrorCorrection.check();
             this.mainTextDisplay.Text = File.ReadAllText(xml_ref.file_path);
+            compressButton.Enabled = true;
+            convertButton.Enabled = true;
         }
     }
 }

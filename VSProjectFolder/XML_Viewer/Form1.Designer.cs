@@ -43,7 +43,6 @@ namespace XML_Viewer
             // 
             this.mainMenuStrip.BackColor = System.Drawing.Color.Black;
             this.mainMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.mainMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openButton,
@@ -53,7 +52,7 @@ namespace XML_Viewer
             this.decompressButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(812, 36);
+            this.mainMenuStrip.Size = new System.Drawing.Size(629, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -62,38 +61,42 @@ namespace XML_Viewer
             this.openButton.BackColor = System.Drawing.Color.Transparent;
             this.openButton.ForeColor = System.Drawing.Color.White;
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(72, 32);
+            this.openButton.Size = new System.Drawing.Size(72, 29);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // correctErrorsButton
             // 
+            this.correctErrorsButton.Enabled = false;
             this.correctErrorsButton.ForeColor = System.Drawing.Color.White;
             this.correctErrorsButton.Name = "correctErrorsButton";
-            this.correctErrorsButton.Size = new System.Drawing.Size(154, 32);
+            this.correctErrorsButton.Size = new System.Drawing.Size(154, 29);
             this.correctErrorsButton.Text = "Check for Errors";
             this.correctErrorsButton.Click += new System.EventHandler(this.correctErrorsButton_Click_1);
             // 
             // convertButton
             // 
+            this.convertButton.Enabled = false;
             this.convertButton.ForeColor = System.Drawing.Color.White;
             this.convertButton.Name = "convertButton";
-            this.convertButton.Size = new System.Drawing.Size(160, 32);
+            this.convertButton.Size = new System.Drawing.Size(160, 29);
             this.convertButton.Text = "Convert to JSON";
             // 
             // compressButton
             // 
+            this.compressButton.Enabled = false;
             this.compressButton.ForeColor = System.Drawing.Color.White;
             this.compressButton.Name = "compressButton";
-            this.compressButton.Size = new System.Drawing.Size(108, 32);
+            this.compressButton.Size = new System.Drawing.Size(108, 29);
             this.compressButton.Text = "Compress";
             this.compressButton.Click += new System.EventHandler(this.compressButton_Click);
             // 
             // decompressButton
             // 
+            this.decompressButton.Enabled = false;
             this.decompressButton.ForeColor = System.Drawing.Color.White;
             this.decompressButton.Name = "decompressButton";
-            this.decompressButton.Size = new System.Drawing.Size(127, 32);
+            this.decompressButton.Size = new System.Drawing.Size(127, 29);
             this.decompressButton.Text = "Decompress";
             this.decompressButton.Click += new System.EventHandler(this.decompressButton_Click);
             // 
