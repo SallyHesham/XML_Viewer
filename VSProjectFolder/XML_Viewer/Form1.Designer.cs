@@ -43,6 +43,7 @@ namespace XML_Viewer
             // 
             this.mainMenuStrip.BackColor = System.Drawing.Color.Black;
             this.mainMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.mainMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openButton,
@@ -52,7 +53,7 @@ namespace XML_Viewer
             this.decompressButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(629, 33);
+            this.mainMenuStrip.Size = new System.Drawing.Size(809, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -81,6 +82,7 @@ namespace XML_Viewer
             this.convertButton.Name = "convertButton";
             this.convertButton.Size = new System.Drawing.Size(160, 29);
             this.convertButton.Text = "Convert to JSON";
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click_1);
             // 
             // compressButton
             // 

@@ -24,6 +24,7 @@ namespace XML_Viewer
     static class xml_ref
     {
         public static string file_path;
+        public static string file_type;
         // carmine (166, 5, 20)
         // blood red (136, 8, 8)
         public static Color highlights = Color.FromArgb(136, 8, 8);
