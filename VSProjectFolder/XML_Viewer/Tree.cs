@@ -18,6 +18,7 @@ namespace XML_Viewer
     class Tree
     {
         private Node root;
+        public static Tree xml_tree = new Tree();
 
         public Tree()
         {
@@ -107,7 +108,7 @@ namespace XML_Viewer
                     temp.setData(line);
                 }
             }
-
+            reader.Close();
         }
 
 

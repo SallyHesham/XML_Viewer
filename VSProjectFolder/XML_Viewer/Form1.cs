@@ -34,6 +34,8 @@ namespace XML_Viewer
                 // I currently display the file as is
                 // this will change later
                 this.mainTextDisplay.Text = File.ReadAllText(fileName);
+                //xml_tree = new Tree();
+                Tree.xml_tree.populateTree(fileName);
             }
             correctErrorsButton.Enabled = true;
             convertButton.Enabled = false;
@@ -178,6 +180,16 @@ namespace XML_Viewer
                 }
             }
             reader.Close();
+        }
+
+        private void convertButton_Click(object sender, EventArgs e)
+        {
+            this.mainTextDisplay.Text = "";
+            Node node = Tree.xml_tree.getRoot();
+            StreamWriter file = new StreamWriter("JSON.json");
+            XmlToJson.printJson(node, file);
+            file.Close();
+            this.mainTextDisplay.Text = File.ReadAllText("JSON.json");
         }
     }
 }
