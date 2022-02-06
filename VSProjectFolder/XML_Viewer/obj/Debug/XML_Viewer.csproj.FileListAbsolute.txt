@@ -8,3 +8,10 @@ C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Vie
 C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.exe
 C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.pdb
 C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.mainWindow.resources
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\Microsoft.Msagl.dll
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\Microsoft.Msagl.Drawing.dll
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\Microsoft.Msagl.xml
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\Microsoft.Msagl.Drawing.xml
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
+C:\Users\sally\OneDrive\Desktop\Coding\GitHub\XML_Viewer\VSProjectFolder\XML_Viewer\obj\Debug\XML_Viewer.csproj.CopyComplete

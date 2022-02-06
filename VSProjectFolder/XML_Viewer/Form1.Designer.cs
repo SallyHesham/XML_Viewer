@@ -36,6 +36,7 @@ namespace XML_Viewer
             this.compressButton = new System.Windows.Forms.ToolStripMenuItem();
             this.decompressButton = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTextDisplay = new System.Windows.Forms.RichTextBox();
+            this.graphButton = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,10 +51,11 @@ namespace XML_Viewer
             this.correctErrorsButton,
             this.convertButton,
             this.compressButton,
-            this.decompressButton});
+            this.decompressButton,
+            this.graphButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(14, 12);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(809, 33);
+            this.mainMenuStrip.Size = new System.Drawing.Size(885, 33);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -120,6 +122,15 @@ namespace XML_Viewer
             this.mainTextDisplay.TabIndex = 1;
             this.mainTextDisplay.Text = "";
             // 
+            // graphButton
+            // 
+            this.graphButton.Enabled = false;
+            this.graphButton.ForeColor = System.Drawing.Color.White;
+            this.graphButton.Name = "graphButton";
+            this.graphButton.Size = new System.Drawing.Size(76, 29);
+            this.graphButton.Text = "Graph";
+            this.graphButton.Click += new System.EventHandler(this.graphButton_Click);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -153,6 +164,7 @@ namespace XML_Viewer
         private System.Windows.Forms.ToolStripMenuItem compressButton;
         private System.Windows.Forms.RichTextBox mainTextDisplay;
         private System.Windows.Forms.ToolStripMenuItem decompressButton;
+        private System.Windows.Forms.ToolStripMenuItem graphButton;
     }
 }
 

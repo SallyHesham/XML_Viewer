@@ -103,6 +103,7 @@ namespace XML_Viewer
             compressButton.Enabled = true;
             convertButton.Enabled = true;
             correctErrorsButton.Enabled = false;
+            graphButton.Enabled = true;
 
             Tree.xml_tree.populateTree(xml_ref.file_path);
         }
@@ -215,6 +216,63 @@ namespace XML_Viewer
 
             this.mainTextDisplay.Text = File.ReadAllText("JSON.json");
             convertButton.Enabled = false;
+        }
+
+        private void graphButton_Click(object sender, EventArgs e)
+        {
+            //create a form
+            System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+            //create a viewer object
+            Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+            //create a graph object
+            Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
+            //create the graph content
+            Node root = Tree.xml_tree.getRoot();
+            List<Node> users = root.getChildren();
+            Queue<string> idQ = new Queue<string>();
+            Queue<string> namesQ = new Queue<string>();
+            for (int i = 0; i < users.Count; i++)
+            {
+                List<Node> content = users[i].getChildren();
+                string id = "0";
+                for (int x = 0; x < content.Count; x++)
+                {
+                    switch(content[x].getTag())
+                    {
+                        case "id":
+                            id = content[x].getData();
+                            idQ.Enqueue(id);
+                            break;
+                        case "name":
+                            namesQ.Enqueue(content[x].getData());
+                            break;
+                        case "followers":
+                            List<Node> followers = content[x].getChildren();
+                            string folID;
+                            for(int y = 0; y < followers.Count; y++)
+                            {
+                                folID = followers[y].getChildren()[0].getData();
+                                graph.AddEdge(folID, id);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            for (int i = 0; i < users.Count; i++)
+            {
+                graph.FindNode(idQ.Dequeue()).LabelText = namesQ.Dequeue();
+            }
+            //bind the graph to the viewer
+            viewer.Graph = graph;
+            //associate the viewer with the form
+            form.SuspendLayout();
+            viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            form.Controls.Add(viewer);
+            form.ResumeLayout();
+            ///show the form
+            form.ShowDialog();
         }
     }
 }
