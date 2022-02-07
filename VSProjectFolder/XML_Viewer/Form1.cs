@@ -242,6 +242,7 @@ namespace XML_Viewer
                         case "id":
                             id = content[x].getData();
                             idQ.Enqueue(id);
+                            graph.AddNode(id);
                             break;
                         case "name":
                             namesQ.Enqueue(content[x].getData());
